@@ -34,6 +34,9 @@ spring:
     resources:
       cache:
         use-last-modified: false
+  # 设置当前profile，否则开发环境下html静态页面不会引进来
+  profiles:
+    active: dev
 
 initializr:
   stats:
@@ -1782,7 +1785,7 @@ initializr:
           id: spring-ai-markdown-document-reader
           group-id: org.springframework.ai
           artifact-id: spring-ai-markdown-document-reader
-          description: Spring AI Markdown document reader. It allows to load Markdown documents, converting them into a list of Spring AI Document objects.          
+          description: Spring AI Markdown document reader. It allows to load Markdown documents, converting them into a list of Spring AI Document objects.
           bom: spring-ai
           starter: false
           links:
@@ -1901,6 +1904,7 @@ initializr:
 spring:
   config:
     activate:
+      # 以下配置需要激活profile=dev才会生效
       on-profile: dev
   devtools:
     restart:
